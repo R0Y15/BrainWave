@@ -71,6 +71,25 @@ export default {
         "conic-gradient":
           "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
       },
+      animation: {
+        'spin-slow': 'rotate 20s ease-in-out infinite',
+        'spin-fast': 'rotate 10s ease-in-out infinite',
+      },
+
+      keyframes: {
+        rotate: {
+          '0%': { transform: 'rotate(0deg)' },
+          '11%': { transform: 'rotate(45deg)' },
+          '22%': { transform: 'rotate(45deg)' },
+          '33%': { transform: 'rotate(90deg)' },
+          '44%': { transform: 'rotate(90deg)' },
+          '55%': { transform: 'rotate(135deg)' },
+          '66%': { transform: 'rotate(135deg)' },
+          '77%': { transform: 'rotate(180deg)' },
+          '88%': { transform: 'rotate(180deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+      }
     },
   },
   plugins: [

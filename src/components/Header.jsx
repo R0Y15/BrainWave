@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { brainwave } from '../assets'
 import { navigation } from '../constants'
 import { useLocation } from 'react-router-dom'
-import { Button } from '../components'
+import { Button } from './supports'
 import MenuSvg from '../assets/svg/MenuSvg'
 import { HamburgerMenu } from './design/Header'
 import { disablePageScroll, enablePageScroll } from 'scroll-lock'
@@ -52,6 +52,7 @@ const Header = () => {
                                 className={`block relative font-code text-2xl uppercase text-n-1 transition-color hover:text-color-1 ${item.onlyMobile ? 'lg:hidden' : ""} px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold ${item.url === location.hash ? 'z-2 lg:text-n-1' : 'lg:text-n-1/50'} lg:leading-5 lg:hover:text-n-1 xl:px-12`}
                             >
                                 {item.title}
+                                <div className={`relative mx-auto border w-1 h-1 border-white rounded-full bg-white items-center ${item.url === location.hash ? 'block' : 'hidden'}`} />
                             </a>
                         ))}
 

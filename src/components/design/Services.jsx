@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { brainwaveWhiteSymbol, gradient, play } from "../../assets";
 import ChatBubbleWing from "../../assets/svg/ChatBubbleWing";
 
@@ -27,7 +28,7 @@ export const PhotoChatMessage = () => {
 export const VideoChatMessage = () => {
   return (
     <div className="absolute top-8 left-[3.125rem] w-full max-w-[14rem] pt-2.5 pr-2.5 pb-7 pl-5 bg-n-6 rounded-t-xl rounded-br-xl font-code text-base md:max-w-[17.5rem]">
-      Video generated!
+      Video generated<span className='animate-pulse'>!</span>
       <div className="absolute left-5 -bottom-[1.125rem] flex items-center justify-center w-[2.25rem] h-[2.25rem] bg-color-1 rounded-[0.75rem]">
         <img
           src={brainwaveWhiteSymbol}
@@ -48,6 +49,30 @@ export const VideoChatMessage = () => {
 };
 
 export const VideoBar = () => {
+  const [progress, setProgress] = useState(0);
+  const [isProgressing, setIsProgressing] = useState(false);
+
+  const toggleProgress = () => {
+    setIsProgressing(!isProgressing);
+  };
+
+  useEffect(() => {
+    if (isProgressing) {
+      const timer = setInterval(() => {
+        setProgress((oldProgress) => {
+          if (oldProgress === 100) {
+            return 0;
+          }
+          return Math.min(oldProgress + 1, 100);
+        });
+      }, 100);
+
+      return () => {
+        clearInterval(timer);
+      };
+    }
+  }, [isProgressing]);
+
   return (
     <div className="absolute left-0 bottom-0 w-full flex items-center p-6">
       <img
@@ -55,11 +80,15 @@ export const VideoBar = () => {
         width={24}
         height={24}
         alt="Play"
-        className="object-contain mr-3"
+        className="object-contain mr-3 cursor-pointer"
+        onClick={toggleProgress}
       />
 
       <div className="flex-1 bg-[#D9D9D9]">
-        <div className="w-1/2 h-0.5 bg-color-1"></div>
+        <div
+          style={{ width: `${progress}%` }}
+          className="h-0.5 bg-color-1"
+        ></div>
       </div>
     </div>
   );

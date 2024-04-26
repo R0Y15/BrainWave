@@ -1,5 +1,5 @@
 import React from 'react'
-import { companyLogos } from '../constants'
+import { companyLogos } from '../../constants'
 
 const CompanyLogos = ({ className }) => {
     return (
