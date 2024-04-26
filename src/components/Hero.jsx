@@ -94,7 +94,6 @@ const Hero = () => {
                             />
                         </div>
                     </ScrollParallax>
-
                     <BackgroundCircles />
                 </div>
                 <CompanyLogos 
