@@ -1,6 +1,5 @@
 import React from 'react'
-import Section from './Section'
-import Heading from './Heading'
+import { Section, Heading } from './supports'
 import { benefits } from '../constants'
 import Arrow from '../assets/svg/Arrow'
 import { GradientLight } from './design/Benefits'
