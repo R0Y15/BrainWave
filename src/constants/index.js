@@ -99,7 +99,6 @@ import {
       date: "May 2023",
       status: "done",
       imageUrl: roadmap1,
-      colorful: true,
     },
     {
       id: "1",
