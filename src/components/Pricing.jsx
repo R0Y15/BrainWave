@@ -54,7 +54,7 @@ const Pricing = () => {
                 </div>
 
                 <div className='flex justify-center mt-10'>
-                    <span className='text-xs md:text-sm font-code font-bold tracking-wider border-b cursor-pointer' onClick={() => (opendetails())}>See the full details {showDetails}</span>
+                    <span className='text-xs md:text-sm font-code font-bold tracking-wider border-b cursor-pointer hidden md:block' onClick={() => (opendetails())}>See the full details {showDetails}</span>
                 </div>
                 {showDetails && <PricingDetails />}
                 <div className={`${showDetails ? 'items-center justify-center p-1 mx-auto rounded-full mt-5 cursor-pointer animate-bounce rotate-90 bg-conic-gradient w-7 h-7' : 'hidden'}`}>
