@@ -15,11 +15,12 @@ const PricingLists = () => {
 
           <p className='body-2 min-h-[4rem] mb-3 text-n-1/50'>{item.description}</p>
 
-          <div className='flex items-center h-[5.5rem] mb-6'>
+          <div className='flex items-center justify-center h-[5.5rem] mb-6'>
             {item.price && (
               <>
                 <div className='h3'>₹</div>
-                <div className='text-[5.5rem] leading-none font-bold'>{item.price}</div>
+                <div className='text-[5.5rem] leading-none font-bold'>{item.price} </div>
+                <div className={`h3 ${item.id === 1 ? 'hidden' : 'block'}`}> /mo</div>
               </>
             )}
           </div>
