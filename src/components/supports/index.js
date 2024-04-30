@@ -6,6 +6,7 @@ import Heading from "./Heading";
 import Notification from "./Notification";
 import Tagline from './Tagline'
 import PricingLists from "./PricingLists";
+import LoginScreen from "./LoginScreen";
 
 export {
     Heading,
@@ -15,5 +16,6 @@ export {
     Section,
     Tagline,
     PricingLists,
+    LoginScreen,
     Button
 }
