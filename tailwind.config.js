@@ -72,12 +72,13 @@ export default {
           "conic-gradient(from 225deg, #FFC876, #79FFF7, #9F53FF, #FF98E2, #FFC876)",
       },
       animation: {
-        'spin-slow': 'rotate 20s ease-in-out infinite',
+        'spin-slow': 'rotate-slow 20s ease-in-out infinite',
         'spin-fast': 'rotate 10s ease-in-out infinite',
+        'slow-bounce': 'custom-bounce 4s ease-in-out infinite',
       },
 
       keyframes: {
-        rotate: {
+        'rotate-slow': {
           '0%': { transform: 'rotate(0deg)' },
           '11%': { transform: 'rotate(45deg)' },
           '22%': { transform: 'rotate(45deg)' },
@@ -89,7 +90,17 @@ export default {
           '88%': { transform: 'rotate(180deg)' },
           '100%': { transform: 'rotate(0deg)' },
         },
-      }
+        'custom-bounce': {
+          '0%, 100%': {
+            transform: 'translateY(0)',
+            animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+          '50%': {
+            transform: 'translateY(-25px)',
+            animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+          },
+        },
+      },
     },
   },
   plugins: [
