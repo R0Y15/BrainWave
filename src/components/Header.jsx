@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { brainwave } from '../assets'
 import { navigation } from '../constants'
 import { useLocation } from 'react-router-dom'
-import { Button } from './supports'
+import { Button, LoginScreen } from './supports'
 import MenuSvg from '../assets/svg/MenuSvg'
 import { HamburgerMenu } from './design/Header'
 import { disablePageScroll, enablePageScroll } from 'scroll-lock'
@@ -11,6 +11,8 @@ import { disablePageScroll, enablePageScroll } from 'scroll-lock'
 const Header = () => {
     const location = useLocation()
     const [openNav, setOpenNav] = useState(false);
+    const [toggleLogin, setToggleLogin] = useState(false);
+    const [loginType, setLoginType] = useState();
 
     const toggleNav = () => {
         if (openNav) {
@@ -28,6 +30,16 @@ const Header = () => {
         enablePageScroll();
         setOpenNav(false);
     };
+
+    const toggleLoginScreen = () => {
+        if (toggleLogin) {
+            setToggleLogin(false);
+            enablePageScroll();
+        } else {
+            setToggleLogin(true);
+            disablePageScroll();
+        }
+    }
 
     return (
         <div className={`fixed top-0 left-0 w-full z-50 border-b border-n-6 lg:bg-n-8/90 lg:backdrop-blur-sm ${openNav ? 'bg-n-8' : 'bg-n-8/90 backdrop-blur-sm'}`}>
@@ -60,17 +72,31 @@ const Header = () => {
                     <HamburgerMenu />
                 </nav>
 
-                <a href="#signUp" className='button hidden lg:block mr-8 text-n-1/50 transition-colors hover:text-n-1'>
+                <a
+                    href="#signUp"
+                    className='button hidden lg:block mr-8 text-n-1/50 transition-colors hover:text-n-1'
+                    onClick={() => {
+                        toggleLoginScreen();
+                        setLoginType("Sign Up");
+                    }}
+                >
                     <span>New Account</span>
                 </a>
 
-                <Button className='hidden lg:flex' href='#SignIn' children='Sign In' />
+                <Button className='hidden lg:flex' children='Sign In'
+                    onClick={() => {
+                        toggleLoginScreen();
+                        setLoginType("Sign In");
+                    }}
+                />
 
 
-                <Button className='ml-auto lg:hidden' px='px-3' onClick={toggleNav}>
+                <Button className='ml-auto lg:hidden' px='px-3' onClick={() => toggleNav()}>
                     <MenuSvg openNav={openNav} />
                 </Button>
             </div>
+
+            {toggleLogin && <LoginScreen type={loginType} />}
         </div>
     )
 }
