@@ -9,7 +9,7 @@ const Pricing = () => {
         <Section className='overflow-hidden' id='pricing'>
             <div className="container relative z-2">
                 <div className="hidden relative justify-center mb-[6.5rem] lg:flex">
-                    <ScrollParallax shouldPause strength={0.01}>
+                    <ScrollParallax shouldPause strength={0.09}>
                         <img
                             src={smallSphere}
                             className='relative z-1 mx-auto'
