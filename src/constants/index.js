@@ -75,7 +75,34 @@ export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
 
 export const notificationImages = [notification4, notification3, notification2];
 
-export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
+export const companyLogos = [
+  {
+    id: "0",
+    name: "TechNexus",
+    logo: "TechNexusLogo"
+  },
+  {
+    id: "1",
+    name: "QuantumQuasar",
+    logo: "QuantumQuasarLogo"
+  },
+  {
+    id: "2",
+    name: "PentaPrism",
+    logo: "PentaPrismLogo"
+  },
+  {
+    id: "3",
+    name: "HexaHive",
+    logo: "HexaHiveLogo"
+  },
+  {
+    id: "4",
+    name: "OmegaOrbit",
+    logo: "OmegaOrbitLogo"
+  }
+];
+
 
 export const brainwaveServices = [
   "Photo generating",
