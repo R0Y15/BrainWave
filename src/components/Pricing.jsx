@@ -6,7 +6,7 @@ import { ScrollParallax } from 'react-just-parallax'
 
 const Pricing = () => {
 
-    const [showDetails, setshowDetails] = useState(true);
+    const [showDetails, setshowDetails] = useState(false);
 
     const opendetails = () => {
         if (showDetails) {
@@ -68,8 +68,6 @@ const Pricing = () => {
                     />
                 </div>
             </div>
-
-
         </Section>
     )
 }
